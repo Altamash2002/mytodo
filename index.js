@@ -16,17 +16,19 @@ task.addEventListener('change', (e) => {
 });
 
 taskForm.addEventListener('submit', () => {
-    var childTask = document.createElement('div');
-    var closeBtn = document.createElement('button');
-    closeBtn.classList.add("closeBtn");
-    closeBtn.classList.add("btn-close");
+    if(taskName.trim().length > 0){
+        var childTask = document.createElement('div');
+        var closeBtn = document.createElement('button');
+        closeBtn.classList.add("closeBtn");
+        closeBtn.classList.add("btn-close");
 
-    childTask.innerHTML = taskName;
-    childTask.classList.add('childTask');
-    childTask.appendChild(closeBtn);
-    container.appendChild(childTask);
-    savedTasks.push(taskName);
-    updateLocalStorage(); 
+        childTask.innerHTML = taskName;
+        childTask.classList.add('childTask');
+        childTask.appendChild(closeBtn);
+        container.appendChild(childTask);
+        savedTasks.push(taskName);
+        updateLocalStorage(); 
+    }
 });
 
 container.addEventListener('click', (e) => {
@@ -42,13 +44,15 @@ container.addEventListener('click', (e) => {
 
 // Display saved tasks on page load
 savedTasks.forEach(function(task) {
-    var childTask = document.createElement('div');
-    var closeBtn = document.createElement('button');
-    closeBtn.classList.add("closeBtn");
-    closeBtn.classList.add("btn-close");
+    if(task.trim().length > 0){
+        var childTask = document.createElement('div');
+        var closeBtn = document.createElement('button');
+        closeBtn.classList.add("closeBtn");
+        closeBtn.classList.add("btn-close");
 
-    childTask.innerHTML = task;
-    childTask.classList.add('childTask');
-    childTask.appendChild(closeBtn);
-    container.appendChild(childTask);
+        childTask.innerHTML = task;
+        childTask.classList.add('childTask');
+        childTask.appendChild(closeBtn);
+        container.appendChild(childTask);
+    }
 });

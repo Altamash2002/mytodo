@@ -1,5 +1,5 @@
 var task = document.getElementById('task');
-var add = document.getElementById('add');
+var taskForm = document.getElementById('taskForm');
 var container = document.getElementById('container');
 
 // Retrieve tasks from local storage if available
@@ -15,7 +15,7 @@ task.addEventListener('change', (e) => {
     taskName = e.target.value;
 });
 
-add.addEventListener('click', () => {
+taskForm.addEventListener('submit', () => {
     var childTask = document.createElement('div');
     var closeBtn = document.createElement('button');
     closeBtn.classList.add("closeBtn");
